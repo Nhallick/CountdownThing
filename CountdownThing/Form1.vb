@@ -1,4 +1,5 @@
-﻿Public Class Form1
+﻿Imports System.Runtime.InteropServices
+Public Class Form1
     Dim break As Integer
     Dim lunch As Integer
     Dim home As Integer
@@ -16,9 +17,11 @@
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'start the timer to start the clocks
         Timer.Start()
+
+        'If time gets stuck and it becomes impossible to start the application use one or multiple of these following lines
         'My.Settings.Break = " 9:30:00 AM"
         'My.Settings.Lunch = " 12:00:00 PM"
-        'My.Settings.Home = " 3:00:00 PM"
+        'My.Settings.Home = "
 
         'use the datediff function to get the time in seconds between the start of the day (7 AM) and break/lunch/home time. Use that value as the maximum for each respective progressbar
         PBBreak.Maximum = DateDiff(DateInterval.Second, Convert.ToDateTime(Date.Today + " 7:00:00 AM"), Convert.ToDateTime(Date.Today + My.Settings.Break))
@@ -88,7 +91,7 @@
             notifier.BalloonTipTitle = "BREAK TIME"
             notifier.BalloonTipText = " It is now break time, please proceed to the break room."
             notifier.BalloonTipIcon = ToolTipIcon.Info
-            CmdOpenCD_Click()
+            ' CmdOpenCD_Click()
             notifier.ShowBalloonTip(5000)
         End If
 
@@ -97,7 +100,7 @@
             notifier.BalloonTipText = " It is now lunch time, please proceed to the break room."
             notifier.BalloonTipIcon = ToolTipIcon.Warning
             notifier.BalloonTipIcon = ToolTipIcon.Info
-            CmdOpenCD_Click()
+            ' CmdOpenCD_Click()
             notifier.ShowBalloonTip(5000)
         End If
 
@@ -105,7 +108,7 @@
             notifier.BalloonTipTitle = "HOME TIME"
             notifier.BalloonTipText = " It is now home time, please proceed home."
             notifier.BalloonTipIcon = ToolTipIcon.Info
-            CmdOpenCD_Click()
+            '  CmdOpenCD_Click()
             notifier.ShowBalloonTip(5000)
         End If
     End Sub
@@ -208,10 +211,15 @@
     Private Sub Notifier_DoubleClick(sender As Object, e As EventArgs) Handles notifier.DoubleClick
         counter = counter + 1
         My.Settings.nickels = My.Settings.nickels + 1
+        My.Settings.Save()
         Dim randomnum As Integer
+        Dim dollars As Double
+        Dim cents As Integer
+        cents = My.Settings.nickels * 5
+        dollars = cents / 100
         Dim stuff(3) As String
         stuff(0) = "Get back to work you!"
-        stuff(1) = "If I had a nickel for every time you've clicked this id have " & My.Settings.nickels & "!"
+        stuff(1) = "If I had a nickel for every time you've clicked this id have " & My.Settings.nickels & "! Thats $" & dollars & "!"
         stuff(2) = "Its not time yet, shhhh"
         stuff(3) = "Would you stop clicking me please?"
 
@@ -275,5 +283,41 @@
         If e.KeyCode = Keys.C Then
             CmdOpenCD_Click()
         End If
+    End Sub
+
+    Private Sub Notifier_BalloonTipClicked(sender As Object, e As EventArgs) Handles notifier.BalloonTipClicked
+        Console.Beep(700, 1000)
+        Console.Beep(200, 1000)
+    End Sub
+
+    Private Sub LblBreak_DoubleClick(sender As Object, e As EventArgs) Handles lblBreak.DoubleClick
+        Dim test As Decimal
+        test = Convert.ToDecimal("6.0000") + Convert.ToDecimal("9.00")
+
+        MsgBox(test)
+    End Sub
+    'control required to manipulate system volume
+    <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)> Private Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal Msg As UInteger, ByVal wParam As IntPtr, ByVal lParam As IntPtr) As IntPtr
+    End Function
+    'variables used to control the sound
+    Const WM_APPCOMMAND As UInteger = &H319
+    Const APPCOMMAND_VOLUME_UP As UInteger = &HA
+    Const APPCOMMAND_VOLUME_DOWN As UInteger = &H9
+    Const APPCOMMAND_VOLUME_MUTE As UInteger = &H8
+    Private Sub BtnVolDown_Click(sender As Object, e As EventArgs) Handles BtnVolDown.Click
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_VOLUME_DOWN * &H10000)
+    End Sub
+
+    Private Sub BtnMute_Click(sender As Object, e As EventArgs) Handles BtnMute.Click
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H200EB0, APPCOMMAND_VOLUME_MUTE * &H10000)
+        If BtnMute.Text = "0" Then
+            BtnMute.Text = "1"
+        Else
+            BtnMute.Text = "0"
+        End If
+    End Sub
+
+    Private Sub BtnVolUp_Click(sender As Object, e As EventArgs) Handles BtnVolUp.Click
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_VOLUME_UP * &H10000)
     End Sub
 End Class

@@ -58,6 +58,9 @@ Partial Class Form1
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DelayTimer = New System.Windows.Forms.Timer(Me.components)
         Me.notifier = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.BtnVolDown = New System.Windows.Forms.Button()
+        Me.BtnMute = New System.Windows.Forms.Button()
+        Me.BtnVolUp = New System.Windows.Forms.Button()
         Me.MS.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -135,20 +138,20 @@ Partial Class Form1
         'PreferencesToolStripMenuItem
         '
         Me.PreferencesToolStripMenuItem.Name = "PreferencesToolStripMenuItem"
-        Me.PreferencesToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.PreferencesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PreferencesToolStripMenuItem.Text = "Preferences"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegularToolStripMenuItem, Me.ExitAndLogOffToolStripMenuItem, Me.ExitAndLockToolStripMenuItem, Me.ExitAndShutDownToolStripMenuItem, Me.ExitAndRestartToolStripMenuItem})
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'RegularToolStripMenuItem
@@ -274,7 +277,7 @@ Partial Class Form1
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.OpenToolStripMenuItem.Text = "Open"
         '
         'DelayTimer
@@ -286,11 +289,41 @@ Partial Class Form1
         Me.notifier.Text = "NotifyIcon1"
         Me.notifier.Visible = True
         '
+        'BtnVolDown
+        '
+        Me.BtnVolDown.Location = New System.Drawing.Point(197, 21)
+        Me.BtnVolDown.Name = "BtnVolDown"
+        Me.BtnVolDown.Size = New System.Drawing.Size(21, 23)
+        Me.BtnVolDown.TabIndex = 9
+        Me.BtnVolDown.Text = "-"
+        Me.BtnVolDown.UseVisualStyleBackColor = True
+        '
+        'BtnMute
+        '
+        Me.BtnMute.Location = New System.Drawing.Point(224, 21)
+        Me.BtnMute.Name = "BtnMute"
+        Me.BtnMute.Size = New System.Drawing.Size(21, 23)
+        Me.BtnMute.TabIndex = 9
+        Me.BtnMute.Text = "1"
+        Me.BtnMute.UseVisualStyleBackColor = True
+        '
+        'BtnVolUp
+        '
+        Me.BtnVolUp.Location = New System.Drawing.Point(251, 21)
+        Me.BtnVolUp.Name = "BtnVolUp"
+        Me.BtnVolUp.Size = New System.Drawing.Size(21, 23)
+        Me.BtnVolUp.TabIndex = 9
+        Me.BtnVolUp.Text = "+"
+        Me.BtnVolUp.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 170)
+        Me.Controls.Add(Me.BtnVolUp)
+        Me.Controls.Add(Me.BtnMute)
+        Me.Controls.Add(Me.BtnVolDown)
         Me.Controls.Add(Me.lblHome)
         Me.Controls.Add(Me.lblLunch)
         Me.Controls.Add(Me.lblBreak)
@@ -345,4 +378,7 @@ Partial Class Form1
     Friend WithEvents notifier As NotifyIcon
     Friend WithEvents CDToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BtnVolDown As Button
+    Friend WithEvents BtnMute As Button
+    Friend WithEvents BtnVolUp As Button
 End Class
