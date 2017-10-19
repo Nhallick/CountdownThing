@@ -16,6 +16,8 @@
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'start the timer to start the clocks
         Timer.Start()
+
+        'If time gets stuck and it becomes impossible to start the application use one or multiple of these following lines
         'My.Settings.Break = " 9:30:00 AM"
         'My.Settings.Lunch = " 12:00:00 PM"
         'My.Settings.Home = " 3:00:00 PM"
@@ -88,7 +90,7 @@
             notifier.BalloonTipTitle = "BREAK TIME"
             notifier.BalloonTipText = " It is now break time, please proceed to the break room."
             notifier.BalloonTipIcon = ToolTipIcon.Info
-            CmdOpenCD_Click()
+            ' CmdOpenCD_Click()
             notifier.ShowBalloonTip(5000)
         End If
 
@@ -97,7 +99,7 @@
             notifier.BalloonTipText = " It is now lunch time, please proceed to the break room."
             notifier.BalloonTipIcon = ToolTipIcon.Warning
             notifier.BalloonTipIcon = ToolTipIcon.Info
-            CmdOpenCD_Click()
+            ' CmdOpenCD_Click()
             notifier.ShowBalloonTip(5000)
         End If
 
@@ -105,7 +107,7 @@
             notifier.BalloonTipTitle = "HOME TIME"
             notifier.BalloonTipText = " It is now home time, please proceed home."
             notifier.BalloonTipIcon = ToolTipIcon.Info
-            CmdOpenCD_Click()
+            '  CmdOpenCD_Click()
             notifier.ShowBalloonTip(5000)
         End If
     End Sub
@@ -208,10 +210,15 @@
     Private Sub Notifier_DoubleClick(sender As Object, e As EventArgs) Handles notifier.DoubleClick
         counter = counter + 1
         My.Settings.nickels = My.Settings.nickels + 1
+        My.Settings.Save()
         Dim randomnum As Integer
+        Dim dollars As Double
+        Dim cents As Integer
+        cents = My.Settings.nickels * 5
+        dollars = cents / 100
         Dim stuff(3) As String
         stuff(0) = "Get back to work you!"
-        stuff(1) = "If I had a nickel for every time you've clicked this id have " & My.Settings.nickels & "!"
+        stuff(1) = "If I had a nickel for every time you've clicked this id have " & My.Settings.nickels & "! Thats $" & dollars & "!"
         stuff(2) = "Its not time yet, shhhh"
         stuff(3) = "Would you stop clicking me please?"
 
@@ -275,5 +282,17 @@
         If e.KeyCode = Keys.C Then
             CmdOpenCD_Click()
         End If
+    End Sub
+
+    Private Sub Notifier_BalloonTipClicked(sender As Object, e As EventArgs) Handles notifier.BalloonTipClicked
+        Console.Beep(700, 1000)
+        Console.Beep(200, 1000)
+    End Sub
+
+    Private Sub lblBreak_DoubleClick(sender As Object, e As EventArgs) Handles lblBreak.DoubleClick
+        Dim test As Decimal
+        test = Convert.ToDecimal("6.0000") + Convert.ToDecimal("9.00")
+
+        MsgBox(test)
     End Sub
 End Class
