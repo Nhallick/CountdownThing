@@ -1,13 +1,13 @@
 ﻿Public Class Preferences
-    Dim bh As String
-    Dim bm As String
-    Dim bs As String
-    Dim lh As String
-    Dim lm As String
-    Dim ls As String
-    Dim hh As String
-    Dim hm As String
-    Dim hs As String
+    Dim BreakHour As String
+    Dim BreakMinute As String
+    Dim Breakseconds As String
+    Dim LunchHour As String
+    Dim Lunchminute As String
+    Dim LunchSeconds As String
+    Dim HomeHour As String
+    Dim HomeMinute As String
+    Dim HomeSeconds As String
     Dim break As String() = Split(My.Settings.Break, ":")
     Dim lunch As String() = Split(My.Settings.Lunch, ":")
     Dim home As String() = Split(My.Settings.Home, ":")
@@ -15,27 +15,27 @@
     Private Sub Preferences_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'use the split strings from the my.settings section of the program to define the hour,minute,second of each time
-        bh = LTrim(break(0))
-        bm = break(1)
+        BreakHour = LTrim(break(0))
+        BreakMinute = break(1)
         'for the seconds portion remove all characters after the index position of 2 to get rid of the "AM" or "PM" designation
-        bs = break(2).Remove(2)
-        lh = LTrim(lunch(0))
-        lm = lunch(1)
-        ls = lunch(2).Remove(2)
-        hh = LTrim(home(0))
-        hm = home(1)
-        hs = home(2).Remove(2)
+        Breakseconds = break(2).Remove(2)
+        LunchHour = LTrim(lunch(0))
+        Lunchminute = lunch(1)
+        LunchSeconds = lunch(2).Remove(2)
+        HomeHour = LTrim(home(0))
+        HomeMinute = home(1)
+        HomeSeconds = home(2).Remove(2)
 
         'populate the textboxes on the form with the relevant times
-        TBBH.Text = bh
-        TBBM.Text = bm
-        TBBS.Text = bs
-        TBLH.Text = lh
-        TBLM.Text = lm
-        TBLS.Text = ls
-        TBHH.Text = hh
-        TBHM.Text = hm
-        TBHS.Text = hs
+        TBBH.Text = BreakHour
+        TBBM.Text = BreakMinute
+        TBBS.Text = Breakseconds
+        TBLH.Text = LunchHour
+        TBLM.Text = Lunchminute
+        TBLS.Text = LunchSeconds
+        TBHH.Text = HomeHour
+        TBHM.Text = HomeMinute
+        TBHS.Text = HomeSeconds
 
         'populate the combo boxes with the current time designator ("AM" or "PM")
         CBB.Text = break(2).Remove(0, 2)
