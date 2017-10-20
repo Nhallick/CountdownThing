@@ -13,7 +13,7 @@ Public Class Form1
     Dim restartflag As Boolean = False
     Dim returnstring As String
     Dim counter As Integer = 0
-
+    'new edit for test
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'start the timer to start the clocks
         Timer.Start()
