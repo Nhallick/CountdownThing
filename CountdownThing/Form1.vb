@@ -3,9 +3,9 @@ Public Class Form1
     Dim break As Integer
     Dim lunch As Integer
     Dim home As Integer
-    Dim bspan As TimeSpan
-    Dim lspan As TimeSpan
-    Dim hspan As TimeSpan
+    Dim BreakSpan As TimeSpan
+    Dim LunchSpan As TimeSpan
+    Dim HomeSpan As TimeSpan
     Dim delay As Integer
     Dim lockflag As Boolean = False
     Dim logoffflag As Boolean = False
@@ -32,13 +32,13 @@ Public Class Form1
         lunch = DateDiff(DateInterval.Second, Date.Now, Convert.ToDateTime(Date.Today + My.Settings.Lunch))
         home = DateDiff(DateInterval.Second, Date.Now, Convert.ToDateTime(Date.Today + My.Settings.Home))
         'convert the time in seconds to a timespan (HH:MM:SS) for use later
-        bspan = TimeSpan.FromSeconds(break)
-        lspan = TimeSpan.FromSeconds(lunch)
-        hspan = TimeSpan.FromSeconds(home)
+        BreakSpan = TimeSpan.FromSeconds(break)
+        LunchSpan = TimeSpan.FromSeconds(lunch)
+        HomeSpan = TimeSpan.FromSeconds(home)
         'set the label texts to the format of *TIME* *EVENT* (*CURRENT TIME*)
-        lblBreak.Text = $"{LTrim(My.Settings.Break)} Break: ({Convert.ToString(bspan)})"
-        lblLunch.Text = $"{LTrim(My.Settings.Lunch)} Lunch: ({Convert.ToString(lspan)})"
-        lblHome.Text = $"{LTrim(My.Settings.Home)} Home Time: ({Convert.ToString(hspan)})"
+        lblBreak.Text = $"{LTrim(My.Settings.Break)} Break: ({Convert.ToString(BreakSpan)})"
+        lblLunch.Text = $"{LTrim(My.Settings.Lunch)} Lunch: ({Convert.ToString(LunchSpan)})"
+        lblHome.Text = $"{LTrim(My.Settings.Home)} Home Time: ({Convert.ToString(HomeSpan)})"
         Me.BackColor = Color.FromArgb(My.Settings.red, My.Settings.green, My.Settings.blue)
     End Sub
 
@@ -52,13 +52,13 @@ Public Class Form1
         lunch = DateDiff(DateInterval.Second, Date.Now, Convert.ToDateTime(Date.Today + My.Settings.Lunch))
         home = DateDiff(DateInterval.Second, Date.Now, Convert.ToDateTime(Date.Today + My.Settings.Home))
         'convert the time in seconds to a timespan (HH:MM:SS) for use later
-        bspan = TimeSpan.FromSeconds(break)
-        lspan = TimeSpan.FromSeconds(lunch)
-        hspan = TimeSpan.FromSeconds(home)
+        BreakSpan = TimeSpan.FromSeconds(break)
+        LunchSpan = TimeSpan.FromSeconds(lunch)
+        HomeSpan = TimeSpan.FromSeconds(home)
         'set the label texts to the format of *TIME* *EVENT* (*CURRENT TIME*)
-        lblBreak.Text = $"{LTrim(My.Settings.Break)} Break: ({Convert.ToString(bspan)})"
-        lblLunch.Text = $"{LTrim(My.Settings.Lunch)} Lunch: ({Convert.ToString(lspan)})"
-        lblHome.Text = $"{LTrim(My.Settings.Home)} Home Time: ({Convert.ToString(hspan)})"
+        lblBreak.Text = $"{LTrim(My.Settings.Break)} Break: ({Convert.ToString(BreakSpan)})"
+        lblLunch.Text = $"{LTrim(My.Settings.Lunch)} Lunch: ({Convert.ToString(LunchSpan)})"
+        lblHome.Text = $"{LTrim(My.Settings.Home)} Home Time: ({Convert.ToString(HomeSpan)})"
 
         'check if the amount of seconds for break is > 0  which means it is still upcoming
         If break > 0 Then
@@ -236,7 +236,7 @@ Public Class Form1
 
         If break > 0 Then
             notifier.BalloonTipTitle = "BREAK TIME"
-            notifier.BalloonTipText = "Break time is in " & Convert.ToString(bspan)
+            notifier.BalloonTipText = "Break time is in " & Convert.ToString(BreakSpan)
             notifier.BalloonTipIcon = ToolTipIcon.Info
             notifier.ShowBalloonTip(5000)
             Exit Sub
@@ -244,7 +244,7 @@ Public Class Form1
 
         If lunch > 0 Then
             notifier.BalloonTipTitle = "LUNCH TIME"
-            notifier.BalloonTipText = "Lunch time is in " & Convert.ToString(lspan)
+            notifier.BalloonTipText = "Lunch time is in " & Convert.ToString(LunchSpan)
             notifier.BalloonTipIcon = ToolTipIcon.Info
             notifier.ShowBalloonTip(5000)
             Exit Sub
@@ -252,7 +252,7 @@ Public Class Form1
 
         If home > 0 Then
             notifier.BalloonTipTitle = "HOME TIME"
-            notifier.BalloonTipText = "Home time is in " & Convert.ToString(hspan)
+            notifier.BalloonTipText = "Home time is in " & Convert.ToString(HomeSpan)
             notifier.BalloonTipIcon = ToolTipIcon.Info
             notifier.ShowBalloonTip(5000)
             Exit Sub
