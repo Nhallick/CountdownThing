@@ -137,6 +137,42 @@ Namespace My
                 Me("nickels") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property newred() As Integer
+            Get
+                Return CType(Me("newred"),Integer)
+            End Get
+            Set
+                Me("newred") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property newgreen() As Integer
+            Get
+                Return CType(Me("newgreen"),Integer)
+            End Get
+            Set
+                Me("newgreen") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property newblue() As Integer
+            Get
+                Return CType(Me("newblue"),Integer)
+            End Get
+            Set
+                Me("newblue") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

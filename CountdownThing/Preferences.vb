@@ -131,6 +131,40 @@
         End If
 
         Form1.BackColor = Color.FromArgb(lblR.Text, lblG.Text, lblB.Text)
+        Dim newred As Integer
+        Dim newgreen As Integer
+        Dim newblue As Integer
+
+        Select Case lblR.Text
+            Case >= 245
+                newred = lblR.Text - 10
+            Case <= 10
+                newred = lblR.Text + 10
+            Case > 10 And (lblR.Text < 245)
+                newred = lblR.Text + 10
+        End Select
+
+        Select Case lblG.Text
+            Case >= 245
+                newgreen = lblG.Text - 10
+            Case <= 10
+                newgreen = lblG.Text + 10
+            Case > 10 And (lblG.Text < 245)
+                newgreen = lblG.Text + 10
+        End Select
+
+        Select Case lblB.Text
+            Case >= 245
+                newblue = lblB.Text - 10
+            Case <= 10
+                newblue = lblB.Text + 10
+            Case > 10 And (lblB.Text < 245)
+                newblue = lblB.Text + 10
+        End Select
+
+        Form1.MS.BackColor = Color.FromArgb(newred, newgreen, newblue)
+
+
 
         'if all the rules above are followed then update all of the settings values with the new numbers
         My.Settings.Break = " " & TBBH.Text & ":" & TBBM.Text & ":" & TBBS.Text & CBB.Text
@@ -139,6 +173,9 @@
         My.Settings.red = lblR.Text
         My.Settings.green = lblG.Text
         My.Settings.blue = lblB.Text
+        My.Settings.newred = newred
+        My.Settings.newgreen = newgreen
+        My.Settings.newblue = newblue
         'save the settings
         My.Settings.Save()
 
