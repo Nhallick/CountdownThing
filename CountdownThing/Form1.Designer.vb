@@ -138,20 +138,20 @@ Partial Class Form1
         'PreferencesToolStripMenuItem
         '
         Me.PreferencesToolStripMenuItem.Name = "PreferencesToolStripMenuItem"
-        Me.PreferencesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PreferencesToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.PreferencesToolStripMenuItem.Text = "Preferences"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegularToolStripMenuItem, Me.ExitAndLogOffToolStripMenuItem, Me.ExitAndLockToolStripMenuItem, Me.ExitAndShutDownToolStripMenuItem, Me.ExitAndRestartToolStripMenuItem})
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'RegularToolStripMenuItem
@@ -286,7 +286,7 @@ Partial Class Form1
         'notifier
         '
         Me.notifier.Icon = CType(resources.GetObject("notifier.Icon"), System.Drawing.Icon)
-        Me.notifier.Text = "NotifyIcon1"
+        Me.notifier.Text = "Nicks Toolbox"
         Me.notifier.Visible = True
         '
         'BtnVolDown
