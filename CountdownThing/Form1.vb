@@ -40,6 +40,7 @@ Public Class Form1
         lblLunch.Text = $"{LTrim(My.Settings.Lunch)} Lunch: ({Convert.ToString(LunchSpan)})"
         lblHome.Text = $"{LTrim(My.Settings.Home)} Home Time: ({Convert.ToString(HomeSpan)})"
         Me.BackColor = Color.FromArgb(My.Settings.red, My.Settings.green, My.Settings.blue)
+        MS.BackColor = Color.FromArgb(My.Settings.newred, My.Settings.newgreen, My.Settings.newblue)
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
