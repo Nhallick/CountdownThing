@@ -161,7 +161,7 @@ Public Class Form1
 
     Private Sub DelayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DelayToolStripMenuItem.Click
         lockflag = True
-        delay = InputBox("Please enter the length of delay in millisecnds",, "1000")
+        delay = InputBox("Please enter the length of delay in milliseconds",, "1000")
         DelayTimer.Interval = delay
         DelayTimer.Start()
     End Sub
@@ -190,21 +190,21 @@ Public Class Form1
 
     Private Sub DelayToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DelayToolStripMenuItem1.Click
         logoffflag = True
-        delay = InputBox("Please enter the length of delay in millisecnds",, "1000")
+        delay = InputBox("Please enter the length of delay in milliseconds",, "1000")
         DelayTimer.Interval = delay
         DelayTimer.Start()
     End Sub
 
     Private Sub DelayToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles DelayToolStripMenuItem2.Click
         shutdownflag = True
-        delay = InputBox("Please enter the length of delay in millisecnds",, "1000")
+        delay = InputBox("Please enter the length of delay in milliseconds",, "1000")
         DelayTimer.Interval = delay
         DelayTimer.Start()
     End Sub
 
     Private Sub DelayToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles DelayToolStripMenuItem3.Click
         restartflag = True
-        delay = InputBox("Please enter the length of delay in millisecnds",, "1000")
+        delay = InputBox("Please enter the length of delay in milliseconds",, "1000")
         DelayTimer.Interval = delay
         DelayTimer.Start()
     End Sub
@@ -214,7 +214,7 @@ Public Class Form1
         My.Settings.nickels = My.Settings.nickels + 1
         My.Settings.Save()
         Dim randomnum As Integer
-        Dim dollars As Double
+        Dim dollars As Decimal
         Dim cents As Integer
         cents = My.Settings.nickels * 5
         dollars = cents / 100

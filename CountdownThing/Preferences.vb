@@ -26,7 +26,7 @@
         HomeMinute = home(1)
         HomeSeconds = home(2).Remove(2)
 
-        'populate the textboxes on the form with the relevant times
+        'populate the text boxes on the form with the relevant times
         TBBH.Text = BreakHour
         TBBM.Text = BreakMinute
         TBBS.Text = Breakseconds
@@ -59,7 +59,7 @@
         Dim flag1 As Boolean = True
         Dim flag2 As Boolean = True
 
-        'create a textbox array to make it easier to iterate through all of the textboxes on the form
+        'create a text box array to make it easier to iterate through all of the text boxes on the form
         Dim tbarr(8) As TextBox
         tbarr(0) = TBBH
         tbarr(1) = TBBM
@@ -71,36 +71,36 @@
         tbarr(7) = TBHM
         tbarr(8) = TBHS
 
-        'use a for loop to loop through each textbox in the textbox array
+        'use a for loop to loop through each text box in the text box array
         For Each item In tbarr
-            'use try catch to handle checking if the textbox has a numeric value or not
+            'use try catch to handle checking if the text box has a numeric value or not
             Try
-                'try converting the contents of the textbox to a 16 bit integer
+                'try converting the contents of the text box to a 16 bit integer
                 Convert.ToInt16(item.Text)
-                'if it fails the exception is caught and the user is informed that there needs to be an integer in the textbox
+                'if it fails the exception is caught and the user is informed that there needs to be an integer in the text box
             Catch ex As Exception
                 'flags are used so that the message box wont pop up more than once. flag is turned off after the first message box
                 If flag1 = True Then
-                    MsgBox("All textboxes must have numeric values assigned to them.", vbCritical, "Error")
+                    MsgBox("All text boxes must have numeric values assigned to them.", vbCritical, "Error")
                     flag1 = False
                     'flag 2 used to tell the program not to run the rest of the code after the for loop
                     flag2 = False
                 End If
-                'set the offending textbox(es) to blank so the user can see which ones were wrong
+                'set the offending text box(es) to blank so the user can see which ones were wrong
                 item.Text = ""
                 'Exit Sub
             End Try
             'use an if statement to check of the value is over 60 or less than 0
             If (item.Text > 60) Or (item.Text < 0) Then
-                'set the offending textbox(es) to blank so the user can see which ones were wrong
+                'set the offending text box(es) to blank so the user can see which ones were wrong
                 item.Text = ""
                 If flag1 = True Then
-                    MsgBox("No textbox value may be greater than 60 or less than 0.", vbCritical, "Error")
+                    MsgBox("No text box value may be greater than 60 or less than 0.", vbCritical, "Error")
                     flag2 = False
                     Exit For
                 End If
             End If
-            'check if the hour textbox is more than 12
+            'check if the hour text box is more than 12
             If tbarr(0).Text > 12 Then
                 tbarr(0).Text = ""
                 If flag1 = True Then
@@ -108,7 +108,7 @@
                     flag2 = False
                     Exit For
                 End If
-                'check if the hour textbox is more than 12
+                'check if the hour text box is more than 12
             ElseIf tbarr(3).Text > 12 Then
                 tbarr(3).Text = ""
                 If flag1 = True Then
@@ -116,7 +116,7 @@
                     flag2 = False
                     Exit For
                 End If
-                'check if the hour textbox is more than 12
+                'check if the hour text box is more than 12
             ElseIf tbarr(6).Text > 12 Then
                 tbarr(6).Text = ""
                 If flag1 = True Then
@@ -180,7 +180,7 @@
         My.Settings.Save()
 
 
-        MsgBox("Your settings have been saved sucessfully!", vbInformation, "Sucess")
+        MsgBox("Your settings have been saved successfully!", vbInformation, "Success")
     End Sub
 
     Private Sub TBR_Scroll(sender As Object, e As EventArgs) Handles TBR.Scroll
