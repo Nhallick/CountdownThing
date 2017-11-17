@@ -305,6 +305,16 @@ Public Class Form1
     Const APPCOMMAND_VOLUME_UP As UInteger = &HA
     Const APPCOMMAND_VOLUME_DOWN As UInteger = &H9
     Const APPCOMMAND_VOLUME_MUTE As UInteger = &H8
+    Const APPCOMMAND_NEXT As UInteger = 11
+    Const APPCOMMAND_PREVIOUS As UInteger = 12
+    Const APPCOMMAND_BASSBOOST As UInteger = 20
+    Const APPCOMMAND_INCREASEBASS As UInteger = 21
+    Const APPCOMMAND_DECREASEBASS As UInteger = 19
+    Const APPCOMMAND_PLAY As UInteger = 46
+    Const APPCOMMAND_PAUSE As UInteger = 47
+    Const APPCOMMAND_PLAYPAUSE As UInteger = 14
+
+
     Private Sub BtnVolDown_Click(sender As Object, e As EventArgs) Handles BtnVolDown.Click
         SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_VOLUME_DOWN * &H10000)
     End Sub
@@ -320,5 +330,37 @@ Public Class Form1
 
     Private Sub BtnVolUp_Click(sender As Object, e As EventArgs) Handles BtnVolUp.Click
         SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_VOLUME_UP * &H10000)
+    End Sub
+
+    Private Sub BTNPrev_Click(sender As Object, e As EventArgs) Handles BTNPrev.Click
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_PREVIOUS * &H10000)
+    End Sub
+
+    Private Sub BTNNext_Click(sender As Object, e As EventArgs) Handles BTNNext.Click
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_NEXT * &H10000)
+    End Sub
+
+    Private Sub BTNPlay_Click(sender As Object, e As EventArgs) Handles BTNPlay.Click
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_PLAY * &H10000)
+    End Sub
+
+    Private Sub BTNPlayPause_Click(sender As Object, e As EventArgs) Handles BTNPlayPause.Click
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_PLAYPAUSE * &H10000)
+    End Sub
+
+    Private Sub BTNPause_Click(sender As Object, e As EventArgs) Handles BTNPause.Click
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_PAUSE * &H10000)
+    End Sub
+
+    Private Sub BTNBassDown_Click(sender As Object, e As EventArgs) Handles BTNBassDown.Click
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_DECREASEBASS * &H10000)
+    End Sub
+
+    Private Sub BTNBass_Click(sender As Object, e As EventArgs) Handles BTNBass.Click
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_BASSBOOST * &H10000)
+    End Sub
+
+    Private Sub BTNBassUp_Click(sender As Object, e As EventArgs) Handles BTNBassUp.Click
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_INCREASEBASS * &H10000)
     End Sub
 End Class
