@@ -86,12 +86,21 @@ Partial Class Form1
         Me.PrintPreviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BTNPrev = New System.Windows.Forms.Button()
+        Me.BTNNext = New System.Windows.Forms.Button()
+        Me.BTNBass = New System.Windows.Forms.Button()
+        Me.BTNBassUp = New System.Windows.Forms.Button()
+        Me.BTNBassDown = New System.Windows.Forms.Button()
+        Me.BTNPlayPause = New System.Windows.Forms.Button()
+        Me.BTNPlay = New System.Windows.Forms.Button()
+        Me.BTNPause = New System.Windows.Forms.Button()
         Me.MS.SuspendLayout()
         Me.SuspendLayout()
         '
         'PBBreak
         '
-        Me.PBBreak.Location = New System.Drawing.Point(12, 50)
+        Me.PBBreak.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.PBBreak.Location = New System.Drawing.Point(15, 134)
         Me.PBBreak.Name = "PBBreak"
         Me.PBBreak.Size = New System.Drawing.Size(260, 23)
         Me.PBBreak.Step = 1
@@ -99,7 +108,8 @@ Partial Class Form1
         '
         'PBLunch
         '
-        Me.PBLunch.Location = New System.Drawing.Point(12, 92)
+        Me.PBLunch.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.PBLunch.Location = New System.Drawing.Point(15, 176)
         Me.PBLunch.Name = "PBLunch"
         Me.PBLunch.Size = New System.Drawing.Size(260, 23)
         Me.PBLunch.Step = 1
@@ -107,7 +117,8 @@ Partial Class Form1
         '
         'PBHome
         '
-        Me.PBHome.Location = New System.Drawing.Point(12, 134)
+        Me.PBHome.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.PBHome.Location = New System.Drawing.Point(15, 218)
         Me.PBHome.Name = "PBHome"
         Me.PBHome.Size = New System.Drawing.Size(260, 23)
         Me.PBHome.Step = 1
@@ -115,8 +126,9 @@ Partial Class Form1
         '
         'lblBreak
         '
+        Me.lblBreak.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblBreak.AutoSize = True
-        Me.lblBreak.Location = New System.Drawing.Point(9, 34)
+        Me.lblBreak.Location = New System.Drawing.Point(12, 118)
         Me.lblBreak.Name = "lblBreak"
         Me.lblBreak.Size = New System.Drawing.Size(138, 13)
         Me.lblBreak.TabIndex = 3
@@ -124,8 +136,9 @@ Partial Class Form1
         '
         'lblLunch
         '
+        Me.lblLunch.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblLunch.AutoSize = True
-        Me.lblLunch.Location = New System.Drawing.Point(9, 76)
+        Me.lblLunch.Location = New System.Drawing.Point(12, 160)
         Me.lblLunch.Name = "lblLunch"
         Me.lblLunch.Size = New System.Drawing.Size(146, 13)
         Me.lblLunch.TabIndex = 4
@@ -133,8 +146,9 @@ Partial Class Form1
         '
         'lblHome
         '
+        Me.lblHome.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblHome.AutoSize = True
-        Me.lblHome.Location = New System.Drawing.Point(9, 118)
+        Me.lblHome.Location = New System.Drawing.Point(12, 202)
         Me.lblHome.Name = "lblHome"
         Me.lblHome.Size = New System.Drawing.Size(160, 13)
         Me.lblHome.TabIndex = 5
@@ -316,7 +330,7 @@ Partial Class Form1
         '
         'BtnVolDown
         '
-        Me.BtnVolDown.Location = New System.Drawing.Point(197, 21)
+        Me.BtnVolDown.Location = New System.Drawing.Point(15, 27)
         Me.BtnVolDown.Name = "BtnVolDown"
         Me.BtnVolDown.Size = New System.Drawing.Size(21, 23)
         Me.BtnVolDown.TabIndex = 9
@@ -325,7 +339,7 @@ Partial Class Form1
         '
         'BtnMute
         '
-        Me.BtnMute.Location = New System.Drawing.Point(224, 21)
+        Me.BtnMute.Location = New System.Drawing.Point(78, 27)
         Me.BtnMute.Name = "BtnMute"
         Me.BtnMute.Size = New System.Drawing.Size(21, 23)
         Me.BtnMute.TabIndex = 9
@@ -334,7 +348,7 @@ Partial Class Form1
         '
         'BtnVolUp
         '
-        Me.BtnVolUp.Location = New System.Drawing.Point(251, 21)
+        Me.BtnVolUp.Location = New System.Drawing.Point(141, 27)
         Me.BtnVolUp.Name = "BtnVolUp"
         Me.BtnVolUp.Size = New System.Drawing.Size(21, 23)
         Me.BtnVolUp.TabIndex = 9
@@ -510,13 +524,95 @@ Partial Class Form1
         Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(32, 19)
         Me.ExitToolStripMenuItem1.Text = "E&xit"
         '
+        'BTNPrev
+        '
+        Me.BTNPrev.Location = New System.Drawing.Point(42, 27)
+        Me.BTNPrev.Name = "BTNPrev"
+        Me.BTNPrev.Size = New System.Drawing.Size(30, 23)
+        Me.BTNPrev.TabIndex = 9
+        Me.BTNPrev.Text = "<<"
+        Me.BTNPrev.UseVisualStyleBackColor = True
+        '
+        'BTNNext
+        '
+        Me.BTNNext.Location = New System.Drawing.Point(105, 27)
+        Me.BTNNext.Name = "BTNNext"
+        Me.BTNNext.Size = New System.Drawing.Size(30, 23)
+        Me.BTNNext.TabIndex = 9
+        Me.BTNNext.Text = ">>"
+        Me.BTNNext.UseVisualStyleBackColor = True
+        '
+        'BTNBass
+        '
+        Me.BTNBass.Location = New System.Drawing.Point(47, 85)
+        Me.BTNBass.Name = "BTNBass"
+        Me.BTNBass.Size = New System.Drawing.Size(81, 23)
+        Me.BTNBass.TabIndex = 10
+        Me.BTNBass.Text = "BASSBOOST"
+        Me.BTNBass.UseVisualStyleBackColor = True
+        '
+        'BTNBassUp
+        '
+        Me.BTNBassUp.Location = New System.Drawing.Point(132, 85)
+        Me.BTNBassUp.Name = "BTNBassUp"
+        Me.BTNBassUp.Size = New System.Drawing.Size(30, 23)
+        Me.BTNBassUp.TabIndex = 11
+        Me.BTNBassUp.Text = "++"
+        Me.BTNBassUp.UseVisualStyleBackColor = True
+        '
+        'BTNBassDown
+        '
+        Me.BTNBassDown.Location = New System.Drawing.Point(15, 85)
+        Me.BTNBassDown.Name = "BTNBassDown"
+        Me.BTNBassDown.Size = New System.Drawing.Size(30, 23)
+        Me.BTNBassDown.TabIndex = 12
+        Me.BTNBassDown.Text = "--"
+        Me.BTNBassDown.UseVisualStyleBackColor = True
+        '
+        'BTNPlayPause
+        '
+        Me.BTNPlayPause.Location = New System.Drawing.Point(47, 56)
+        Me.BTNPlayPause.Name = "BTNPlayPause"
+        Me.BTNPlayPause.Size = New System.Drawing.Size(81, 23)
+        Me.BTNPlayPause.TabIndex = 13
+        Me.BTNPlayPause.Text = "PLAYPAUSE"
+        Me.BTNPlayPause.UseVisualStyleBackColor = True
+        '
+        'BTNPlay
+        '
+        Me.BTNPlay.Location = New System.Drawing.Point(15, 56)
+        Me.BTNPlay.Name = "BTNPlay"
+        Me.BTNPlay.Size = New System.Drawing.Size(26, 23)
+        Me.BTNPlay.TabIndex = 14
+        Me.BTNPlay.Text = ">"
+        Me.BTNPlay.UseVisualStyleBackColor = True
+        '
+        'BTNPause
+        '
+        Me.BTNPause.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTNPause.Location = New System.Drawing.Point(136, 56)
+        Me.BTNPause.Name = "BTNPause"
+        Me.BTNPause.Size = New System.Drawing.Size(26, 23)
+        Me.BTNPause.TabIndex = 15
+        Me.BTNPause.Text = "||"
+        Me.BTNPause.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.BTNPause.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 170)
+        Me.ClientSize = New System.Drawing.Size(284, 248)
+        Me.Controls.Add(Me.BTNPause)
+        Me.Controls.Add(Me.BTNPlay)
+        Me.Controls.Add(Me.BTNPlayPause)
+        Me.Controls.Add(Me.BTNBassDown)
+        Me.Controls.Add(Me.BTNBassUp)
+        Me.Controls.Add(Me.BTNBass)
         Me.Controls.Add(Me.BtnVolUp)
         Me.Controls.Add(Me.BtnMute)
+        Me.Controls.Add(Me.BTNNext)
+        Me.Controls.Add(Me.BTNPrev)
         Me.Controls.Add(Me.BtnVolDown)
         Me.Controls.Add(Me.lblHome)
         Me.Controls.Add(Me.lblLunch)
@@ -600,4 +696,12 @@ Partial Class Form1
     Friend WithEvents PrintPreviewToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents toolStripSeparator2 As ToolStripSeparator
     Friend WithEvents ExitToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents BTNPrev As Button
+    Friend WithEvents BTNNext As Button
+    Friend WithEvents BTNBass As Button
+    Friend WithEvents BTNBassUp As Button
+    Friend WithEvents BTNBassDown As Button
+    Friend WithEvents BTNPlayPause As Button
+    Friend WithEvents BTNPlay As Button
+    Friend WithEvents BTNPause As Button
 End Class
