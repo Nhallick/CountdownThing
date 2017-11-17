@@ -49,6 +49,8 @@
         TBG.Value = My.Settings.green
         TBB.Value = My.Settings.blue
 
+        TBColorInterval.Text = My.Settings.ColorInterval
+
     End Sub
 
     Private Sub BTNClose_Click(sender As Object, e As EventArgs) Handles BTNClose.Click
@@ -176,6 +178,16 @@
         My.Settings.newred = newred
         My.Settings.newgreen = newgreen
         My.Settings.newblue = newblue
+        If IsNumeric(TBColorInterval.Text) Then
+            If TBColorInterval.Text > 0 Then
+                My.Settings.ColorInterval = TBColorInterval.Text
+                Form1.TMRColor.Interval = My.Settings.ColorInterval
+            Else
+                MsgBox("Color Interval must be greater than zero", vbCritical, "Error")
+            End If
+        Else
+            MsgBox("Color Interval must be an integer", vbCritical, "Error")
+        End If
         'save the settings
         My.Settings.Save()
 

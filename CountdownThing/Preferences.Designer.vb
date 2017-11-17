@@ -54,6 +54,8 @@ Partial Class Preferences
         Me.lblG = New System.Windows.Forms.TextBox()
         Me.lblB = New System.Windows.Forms.TextBox()
         Me.CBLOCK = New System.Windows.Forms.CheckBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.TBColorInterval = New System.Windows.Forms.TextBox()
         CType(Me.TBR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TBG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TBB, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -335,11 +337,30 @@ Partial Class Preferences
         Me.CBLOCK.TabIndex = 33
         Me.CBLOCK.UseVisualStyleBackColor = True
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(9, 311)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(72, 13)
+        Me.Label10.TabIndex = 34
+        Me.Label10.Text = "Color Interval:"
+        '
+        'TBColorInterval
+        '
+        Me.TBColorInterval.Location = New System.Drawing.Point(87, 308)
+        Me.TBColorInterval.Name = "TBColorInterval"
+        Me.TBColorInterval.Size = New System.Drawing.Size(100, 20)
+        Me.TBColorInterval.TabIndex = 35
+        Me.TBColorInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'Preferences
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(239, 306)
+        Me.ClientSize = New System.Drawing.Size(239, 337)
+        Me.Controls.Add(Me.TBColorInterval)
+        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.CBLOCK)
         Me.Controls.Add(Me.lblB)
         Me.Controls.Add(Me.lblG)
@@ -416,4 +437,6 @@ Partial Class Preferences
     Friend WithEvents lblG As TextBox
     Friend WithEvents lblB As TextBox
     Friend WithEvents CBLOCK As CheckBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents TBColorInterval As TextBox
 End Class
