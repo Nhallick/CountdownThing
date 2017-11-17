@@ -13,10 +13,17 @@ Public Class Form1
     Dim restartflag As Boolean = False
     Dim returnstring As String
     Dim counter As Integer = 0
+    Dim red As Integer = 0
+    Dim green As Integer = 0
+    Dim blue As Integer = 0
+    Dim rf As Boolean = True
+    Dim gf As Boolean = False
+    Dim bf As Boolean = False
     'new edit for test
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'start the timer to start the clocks
         Timer.Start()
+        TMRColor.Start()
 
         'If time gets stuck and it becomes impossible to start the application use one or multiple of these following lines
         'My.Settings.Break = " 9:30:00 AM"
@@ -41,6 +48,9 @@ Public Class Form1
         lblHome.Text = $"{LTrim(My.Settings.Home)} Home Time: ({Convert.ToString(HomeSpan)})"
         Me.BackColor = Color.FromArgb(My.Settings.red, My.Settings.green, My.Settings.blue)
         MS.BackColor = Color.FromArgb(My.Settings.newred, My.Settings.newgreen, My.Settings.newblue)
+
+        TMRColor.Interval = My.Settings.ColorInterval
+
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
@@ -362,5 +372,77 @@ Public Class Form1
 
     Private Sub BTNBassUp_Click(sender As Object, e As EventArgs) Handles BTNBassUp.Click
         SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_INCREASEBASS * &H10000)
+    End Sub
+
+    Private Sub TMRColor_Tick(sender As Object, e As EventArgs) Handles TMRColor.Tick
+        'code to cycle colors.
+        'first red goes from 0 to 255
+        'then green goes from 0 to 255 while red goes from 255 to 0
+        'then blue goes from 0 to 255 while green goes from 255 to 0
+        If rf = True And gf = False And bf = False Then
+            Select Case red
+                Case < 255
+                    red += 1
+                Case 0
+                    red += 1
+                Case 255
+                    rf = False
+                    gf = True
+                    bf = False
+            End Select
+        ElseIf rf = False And gf = True And bf = False Then
+            Select Case green
+                Case < 255
+                    green += 1
+                    red -= 1
+                Case 0
+                    green += 1
+                Case 255
+                    rf = False
+                    gf = False
+                    bf = True
+            End Select
+        ElseIf rf = False And gf = False And bf = True Then
+            Select Case blue
+                Case < 255
+                    blue += 1
+                    green -= 1
+                Case 0
+                    blue += 1
+                Case 255
+                    rf = True
+                    gf = False
+                    bf = False
+                    blue = 0
+                    green = 0
+                    red = 0
+            End Select
+        End If
+
+
+
+
+
+
+
+
+        'cycles colors. red goes from 0 to 255 then green then blue
+        '(basically just goes red/orange/yellow/white)
+        'If red < 254 Then
+        '    red += 1
+        'Else
+        '    If green < 254 Then
+        '        green += 1
+        '    Else
+        '        If blue < 254 Then
+        '            blue += 1
+        '        Else
+        '            red = 0
+        '            green = 0
+        '            blue = 0
+        '        End If
+        '    End If
+        'End If
+        PBRainbow.BackColor = Color.FromArgb(red, green, blue)
     End Sub
 End Class

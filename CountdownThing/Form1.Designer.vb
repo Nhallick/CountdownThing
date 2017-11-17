@@ -94,7 +94,10 @@ Partial Class Form1
         Me.BTNPlayPause = New System.Windows.Forms.Button()
         Me.BTNPlay = New System.Windows.Forms.Button()
         Me.BTNPause = New System.Windows.Forms.Button()
+        Me.PBRainbow = New System.Windows.Forms.PictureBox()
+        Me.TMRColor = New System.Windows.Forms.Timer(Me.components)
         Me.MS.SuspendLayout()
+        CType(Me.PBRainbow, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PBBreak
@@ -598,11 +601,23 @@ Partial Class Form1
         Me.BTNPause.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.BTNPause.UseVisualStyleBackColor = True
         '
+        'PBRainbow
+        '
+        Me.PBRainbow.Location = New System.Drawing.Point(168, 29)
+        Me.PBRainbow.Name = "PBRainbow"
+        Me.PBRainbow.Size = New System.Drawing.Size(107, 99)
+        Me.PBRainbow.TabIndex = 16
+        Me.PBRainbow.TabStop = False
+        '
+        'TMRColor
+        '
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 248)
+        Me.Controls.Add(Me.PBRainbow)
         Me.Controls.Add(Me.BTNPause)
         Me.Controls.Add(Me.BTNPlay)
         Me.Controls.Add(Me.BTNPlayPause)
@@ -629,6 +644,7 @@ Partial Class Form1
         Me.Text = "Nicks Toolbox"
         Me.MS.ResumeLayout(False)
         Me.MS.PerformLayout()
+        CType(Me.PBRainbow, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -704,4 +720,6 @@ Partial Class Form1
     Friend WithEvents BTNPlayPause As Button
     Friend WithEvents BTNPlay As Button
     Friend WithEvents BTNPause As Button
+    Friend WithEvents PBRainbow As PictureBox
+    Friend WithEvents TMRColor As Timer
 End Class

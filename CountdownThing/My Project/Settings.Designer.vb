@@ -173,6 +173,18 @@ Namespace My
                 Me("newblue") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property ColorInterval() As Integer
+            Get
+                Return CType(Me("ColorInterval"),Integer)
+            End Get
+            Set
+                Me("ColorInterval") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
