@@ -19,6 +19,7 @@ Public Class Form1
     Dim rf As Boolean = True
     Dim gf As Boolean = False
     Dim bf As Boolean = False
+    Dim rainbow As Boolean
     'new edit for test
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'start the timer to start the clocks
@@ -444,5 +445,20 @@ Public Class Form1
         '    End If
         'End If
         PBRainbow.BackColor = Color.FromArgb(red, green, blue)
+        If rainbow = True Then
+            Me.BackColor = Color.FromArgb(red, green, blue)
+            MS.BackColor = Color.FromArgb(red, green, blue)
+        Else
+            Me.BackColor = Color.FromArgb(My.Settings.red, My.Settings.green, My.Settings.blue)
+            MS.BackColor = Color.FromArgb(My.Settings.newred, My.Settings.newgreen, My.Settings.newblue)
+        End If
+    End Sub
+
+    Private Sub OnToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OnToolStripMenuItem.Click
+        rainbow = True
+    End Sub
+
+    Private Sub OffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OffToolStripMenuItem.Click
+        rainbow = False
     End Sub
 End Class

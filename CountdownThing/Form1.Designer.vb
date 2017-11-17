@@ -96,6 +96,9 @@ Partial Class Form1
         Me.BTNPause = New System.Windows.Forms.Button()
         Me.PBRainbow = New System.Windows.Forms.PictureBox()
         Me.TMRColor = New System.Windows.Forms.Timer(Me.components)
+        Me.BackgroundRainbowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MS.SuspendLayout()
         CType(Me.PBRainbow, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -172,7 +175,7 @@ Partial Class Form1
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PreferencesToolStripMenuItem, Me.AboutToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PreferencesToolStripMenuItem, Me.AboutToolStripMenuItem, Me.BackgroundRainbowToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -180,20 +183,20 @@ Partial Class Form1
         'PreferencesToolStripMenuItem
         '
         Me.PreferencesToolStripMenuItem.Name = "PreferencesToolStripMenuItem"
-        Me.PreferencesToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.PreferencesToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
         Me.PreferencesToolStripMenuItem.Text = "Preferences"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegularToolStripMenuItem, Me.ExitAndLogOffToolStripMenuItem, Me.ExitAndLockToolStripMenuItem, Me.ExitAndShutDownToolStripMenuItem, Me.ExitAndRestartToolStripMenuItem})
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'RegularToolStripMenuItem
@@ -237,7 +240,7 @@ Partial Class Form1
         '
         Me.LockToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImmediateToolStripMenuItem, Me.DelayToolStripMenuItem})
         Me.LockToolStripMenuItem.Name = "LockToolStripMenuItem"
-        Me.LockToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.LockToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.LockToolStripMenuItem.Text = "Lock"
         '
         'ImmediateToolStripMenuItem
@@ -256,7 +259,7 @@ Partial Class Form1
         '
         Me.LogOffToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImmediateToolStripMenuItem1, Me.DelayToolStripMenuItem1})
         Me.LogOffToolStripMenuItem.Name = "LogOffToolStripMenuItem"
-        Me.LogOffToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.LogOffToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.LogOffToolStripMenuItem.Text = "Log Off"
         '
         'ImmediateToolStripMenuItem1
@@ -275,7 +278,7 @@ Partial Class Form1
         '
         Me.ShutDownToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImmediateToolStripMenuItem2, Me.DelayToolStripMenuItem2})
         Me.ShutDownToolStripMenuItem.Name = "ShutDownToolStripMenuItem"
-        Me.ShutDownToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.ShutDownToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ShutDownToolStripMenuItem.Text = "Shut Down"
         '
         'ImmediateToolStripMenuItem2
@@ -294,7 +297,7 @@ Partial Class Form1
         '
         Me.RestartToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImmediateToolStripMenuItem3, Me.DelayToolStripMenuItem3})
         Me.RestartToolStripMenuItem.Name = "RestartToolStripMenuItem"
-        Me.RestartToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.RestartToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.RestartToolStripMenuItem.Text = "Restart"
         '
         'ImmediateToolStripMenuItem3
@@ -612,6 +615,25 @@ Partial Class Form1
         'TMRColor
         '
         '
+        'BackgroundRainbowToolStripMenuItem
+        '
+        Me.BackgroundRainbowToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OnToolStripMenuItem, Me.OffToolStripMenuItem})
+        Me.BackgroundRainbowToolStripMenuItem.Name = "BackgroundRainbowToolStripMenuItem"
+        Me.BackgroundRainbowToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.BackgroundRainbowToolStripMenuItem.Text = "Background Rainbow"
+        '
+        'OnToolStripMenuItem
+        '
+        Me.OnToolStripMenuItem.Name = "OnToolStripMenuItem"
+        Me.OnToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OnToolStripMenuItem.Text = "On"
+        '
+        'OffToolStripMenuItem
+        '
+        Me.OffToolStripMenuItem.Name = "OffToolStripMenuItem"
+        Me.OffToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OffToolStripMenuItem.Text = "Off"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -722,4 +744,7 @@ Partial Class Form1
     Friend WithEvents BTNPause As Button
     Friend WithEvents PBRainbow As PictureBox
     Friend WithEvents TMRColor As Timer
+    Friend WithEvents BackgroundRainbowToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OnToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OffToolStripMenuItem As ToolStripMenuItem
 End Class
