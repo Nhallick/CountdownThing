@@ -231,9 +231,9 @@ Public Class Form1
         dollars = cents / 100
         Dim stuff(3) As String
         stuff(0) = "Get back to work you!"
-        stuff(1) = "If I had a nickel for every time you've clicked this id have " & My.Settings.nickels & "! Thats $" & dollars & "!"
+        stuff(1) = "If I had a nickel for every time you've clicked this I'd have " & My.Settings.nickels & "! Thats $" & dollars & "!"
         stuff(2) = "Its not time yet, shhhh"
-        stuff(3) = "Would you stop clicking me please?"
+        stuff(3) = "Would you stop clicking me, please?"
 
         randomnum = Getrandomnum(0, stuff.Count)
 
