@@ -49,7 +49,7 @@ Public Class Form1
         lblHome.Text = $"{LTrim(My.Settings.Home)} Home Time: ({Convert.ToString(HomeSpan)})"
         Me.BackColor = Color.FromArgb(My.Settings.red, My.Settings.green, My.Settings.blue)
         MS.BackColor = Color.FromArgb(My.Settings.newred, My.Settings.newgreen, My.Settings.newblue)
-
+        Formstart()
         TMRColor.Interval = My.Settings.ColorInterval
 
     End Sub
@@ -325,7 +325,12 @@ Public Class Form1
     Const APPCOMMAND_PAUSE As UInteger = 47
     Const APPCOMMAND_PLAYPAUSE As UInteger = 14
 
-
+    Public Sub Formstart()
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_VOLUME_UP * &H10000)
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_VOLUME_DOWN * &H10000)
+        SendMessage(Me.Handle, WM_APPCOMMAND, &H200EB0, APPCOMMAND_VOLUME_MUTE * &H10000)
+        BtnMute.Text = "0"
+    End Sub
     Private Sub BtnVolDown_Click(sender As Object, e As EventArgs) Handles BtnVolDown.Click
         SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_VOLUME_DOWN * &H10000)
     End Sub
