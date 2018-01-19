@@ -55,6 +55,7 @@ Public Class Form1
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
+        On Error Resume Next
         'use the datediff function to get the time in seconds between the start of the day (7 AM) and break/lunch/home time. Use that value as the maximum for each respective progressbar
         PBBreak.Maximum = DateDiff(DateInterval.Second, Convert.ToDateTime(Date.Today + " 7:00:00 AM"), Convert.ToDateTime(Date.Today + My.Settings.Break))
         PBLunch.Maximum = DateDiff(DateInterval.Second, Convert.ToDateTime(Date.Today + " 7:00:00 AM"), Convert.ToDateTime(Date.Today + My.Settings.Lunch))
@@ -99,7 +100,7 @@ Public Class Form1
             PBHome.Value = PBHome.Maximum
         End If
 
-        If break = 1 Then
+        If break = 0 Then
             notifier.BalloonTipTitle = "BREAK TIME"
             notifier.BalloonTipText = " It is now break time, please proceed to the break room."
             notifier.BalloonTipIcon = ToolTipIcon.Info
@@ -107,7 +108,7 @@ Public Class Form1
             notifier.ShowBalloonTip(5000)
         End If
 
-        If lunch = 1 Then
+        If lunch = 0 Then
             notifier.BalloonTipTitle = "LUNCH TIME"
             notifier.BalloonTipText = " It is now lunch time, please proceed to the break room."
             notifier.BalloonTipIcon = ToolTipIcon.Warning
@@ -116,7 +117,7 @@ Public Class Form1
             notifier.ShowBalloonTip(5000)
         End If
 
-        If home = 1 Then
+        If home = 0 Then
             notifier.BalloonTipTitle = "HOME TIME"
             notifier.BalloonTipText = " It is now home time, please proceed home."
             notifier.BalloonTipIcon = ToolTipIcon.Info
@@ -298,8 +299,8 @@ Public Class Form1
     End Sub
 
     Private Sub Notifier_BalloonTipClicked(sender As Object, e As EventArgs) Handles notifier.BalloonTipClicked
-        Console.Beep(700, 1000)
-        Console.Beep(200, 1000)
+        'Console.Beep(700, 1000)
+        'Console.Beep(200, 1000)
     End Sub
 
     Private Sub LblBreak_DoubleClick(sender As Object, e As EventArgs) Handles lblBreak.DoubleClick
@@ -333,6 +334,7 @@ Public Class Form1
     End Sub
     Private Sub BtnVolDown_Click(sender As Object, e As EventArgs) Handles BtnVolDown.Click
         SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_VOLUME_DOWN * &H10000)
+        BtnMute.Text = "1"
     End Sub
 
     Private Sub BtnMute_Click(sender As Object, e As EventArgs) Handles BtnMute.Click
@@ -346,10 +348,12 @@ Public Class Form1
 
     Private Sub BtnVolUp_Click(sender As Object, e As EventArgs) Handles BtnVolUp.Click
         SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_VOLUME_UP * &H10000)
+        BtnMute.Text = "1"
     End Sub
 
     Private Sub BTNPrev_Click(sender As Object, e As EventArgs) Handles BTNPrev.Click
         SendMessage(Me.Handle, WM_APPCOMMAND, &H30292, APPCOMMAND_PREVIOUS * &H10000)
+
     End Sub
 
     Private Sub BTNNext_Click(sender As Object, e As EventArgs) Handles BTNNext.Click
